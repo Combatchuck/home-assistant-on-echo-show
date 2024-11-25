@@ -154,12 +154,11 @@ You should see it try to auto populate the info you have already added.
    <div align="center"><img src="img/create_file.png" /></div>
 2. Set the file path as `lambda/template.json`.
    <div align="center"><img src="img/create_template_json.png" /></div>
-3. Paste the contents of the `template.json` from the repository.
-   <div align="center"><img src="template_json.png" /></div>
+3. Paste the contents of the `template.json` from the [repository](https://github.com/Combatchuck/home-assistant-on-echo-show/blob/main/template.json).
+   <div align="center"><img src="img/template_json.png" /></div>
 4. Save and click **Deploy**.
 
 5. Wait for the **Deployment Successful** notification.
-
 
 
 ### Step 23: Test the Skill

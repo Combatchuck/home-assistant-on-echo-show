@@ -1,0 +1,2206 @@
+views:
+  - title: Masterbath
+    type: sections
+    sections:
+      - type: grid
+        cards:
+          - type: custom:clock-weather-card
+            entity: weather.living_room
+          - type: custom:weather-radar-card
+            static_map: false
+            show_scale: true
+            show_marker: true
+            map_style: Dark
+            zoom_level: 9
+            extra_labels: false
+            show_recenter: true
+            show_range: false
+            show_playback: false
+          - type: custom:mod-card
+            card:
+              type: iframe
+              url: https://dagammla.gitlab.io/keep-silk-open/iframe.html
+              aspect_ratio: 10%
+            style:
+              .: |
+                iframe {
+                  height: 50px !important;
+                  width: 50px !important;
+                }
+      - type: grid
+        cards:
+          - type: conditional
+            conditions:
+              - condition: numeric_state
+                entity: sensor.e_tron_r_gt_hybrid_range
+                below: 85
+              - condition: state
+                entity: sensor.e_tron_r_gt_plug_state
+                state_not: connected
+            card:
+              type: custom:mushroom-title-card
+              title: The Audi is in need of a charge!!
+              subtitle: this is because it less than 85 miles left
+          - type: conditional
+            conditions:
+              - condition: state
+                entity: binary_sensor.petra_work
+                state: 'on'
+              - condition: state
+                entity: binary_sensor.7_11am
+                state: 'on'
+              - condition: state
+                entity: person.petra
+                state: home
+            card:
+              type: entity
+              state_color: false
+              entity: sensor.ovo_west_salon
+          - type: conditional
+            conditions:
+              - condition: state
+                entity: binary_sensor.mon_fri
+                state: 'on'
+              - condition: state
+                entity: binary_sensor.5_7am
+                state: 'on'
+              - condition: state
+                entity: person.petra
+                state: home
+            card:
+              type: entity
+              entity: sensor.boot_camp
+              state_color: false
+          - type: horizontal-stack
+            cards:
+              - show_name: true
+                show_icon: true
+                type: button
+                tap_action:
+                  action: toggle
+                entity: light.master_bathroom_ceiling
+                show_state: false
+                name: Ceiling Light
+              - show_name: true
+                show_icon: true
+                type: button
+                tap_action:
+                  action: toggle
+                entity: switch.master_bathroom_fart_fan
+                name: Fart Fan
+              - show_name: true
+                show_icon: true
+                type: button
+                tap_action:
+                  action: toggle
+                entity: switch.master_bathroom_ceiling_fan
+                name: Ceiling Fan
+              - show_name: true
+                show_icon: true
+                type: button
+                tap_action:
+                  action: toggle
+                entity: light.master_bathroom_lights
+                name: Vanity Lights
+          - type: picture
+            image: /local/Pictures/Pic1.jpeg
+          - type: media-control
+            entity: media_player.spotify_petra
+            theme: Caule Black Pink
+          - type: media-control
+            entity: media_player.spotify_chuck
+            theme: Caule Black Blue
+          - type: tile
+            entity: automation.open_master_bath_dashboard
+            layout_options:
+              grid_columns: 4
+              grid_rows: 1
+            name: Dashboard Refresh
+            color: deep-purple
+          - show_state: false
+            show_name: false
+            camera_view: live
+            type: picture-entity
+            entity: camera.g5_turret_ultra_high_resolution_channel
+            camera_image: camera.g5_turret_ultra_high_resolution_channel
+      - type: grid
+        cards:
+          - type: conditional
+            conditions:
+              - condition: state
+                entity: sensor.cph50_network
+                state_not: Connected
+            card:
+              type: custom:mushroom-title-card
+              title: Car Charger is Offline
+              subtitle: Need to go flip the breaker in the basement
+          - title: Audi E-Tron R GT
+            image_url: /api/image/serve/031157fda2fc5df286139e360c15ad5c/original
+            charging_image_url: ''
+            vehicle_type: EV
+            unit_type: mi
+            level_entity: ''
+            range_entity: ''
+            charging_status_entity: sensor.e_tron_r_gt_state_of_charge
+            location_entity: ''
+            mileage_entity: sensor.e_tron_r_gt_mileage
+            show_level: true
+            show_range: true
+            show_location: true
+            show_mileage: false
+            show_car_state: false
+            show_charge_limit: true
+            icon_grid_entities: []
+            custom_icons: {}
+            icon_interactions: {}
+            icon_styles: {}
+            hybrid_display_order: fuel_first
+            car_state_entity: sensor.e_tron_r_gt_plug_state
+            charge_limit_entity: sensor.e_tron_r_gt_target_state_of_charge
+            icon_size: 24
+            icon_gap: 12
+            showEntityInformation: true
+            type: custom:ultra-vehicle-card
+            battery_level_entity: sensor.e_tron_r_gt_primary_engine_percent
+            battery_range_entity: sensor.e_tron_r_gt_hybrid_range
+            fuel_level_entity: ''
+            fuel_range_entity: ''
+            show_battery: true
+            show_battery_range: true
+            show_fuel: true
+            show_fuel_range: true
+            cardBackgroundColor: ''
+            barBackgroundColor: ''
+            barFillColor: ''
+            limitIndicatorColor: ''
+            iconActiveColor: ''
+            iconInactiveColor: ''
+            show_charging: true
+          - type: conditional
+            conditions:
+              - condition: state
+                entity: sensor.cph50_charger_state
+                state: In Use
+            card:
+              type: horizontal-stack
+              cards:
+                - type: conditional
+                  conditions:
+                    - condition: state
+                      entity: sensor.cph50_charging_cable
+                      state: Plugged In
+                  card:
+                    type: gauge
+                    entity: sensor.cph50_miles_added
+                - show_name: false
+                  show_icon: true
+                  type: button
+                  tap_action:
+                    action: toggle
+                  entity: sensor.cph50_charge_cost
+                  show_state: true
+                  icon_height: 50px
+          - initial_view: dayGridDay
+            type: calendar
+            entities:
+              - calendar.fresha_petra_urbankova
+              - calendar.birthdays
+              - calendar.holidays_in_united_states_2
+            title: Salon
+      - type: grid
+        cards:
+          - type: conditional
+            conditions:
+              - condition: state
+                entity: weather.home
+                state_not: unavailable
+            card:
+              show_current: true
+              show_forecast: false
+              type: weather-forecast
+              entity: weather.forecast_home_3
+              forecast_type: daily
+          - type: custom:mushroom-climate-card
+            entity: climate.master
+            show_temperature_control: true
+            hvac_modes:
+              - auto
+            collapsible_controls: true
+            fill_container: false
+            primary_info: name
+            icon: mdi:temperature-fahrenheit
+            layout_options:
+              grid_columns: 4
+              grid_rows: 2
+          - type: entity
+            entity: sensor.master_bath_temperature
+            name: Bathroom
+            state_color: true
+          - type: entity
+            entity: sensor.master_temperature
+            name: Bedroom
+          - initial_view: listWeek
+            type: calendar
+            entities:
+              - calendar.calendar_anepohl
+              - calendar.ethan_s
+    background:
+      image: /api/image/serve/6239f5103cd8c5e1648f4dd77950a0ab/original
+    max_columns: 10
+    cards: []
+    icon: ''
+  - title: Office
+    path: 1
+    type: sections
+    sections:
+      - type: grid
+        cards:
+          - type: custom:digital-clock
+          - show_current: true
+            show_forecast: true
+            type: weather-forecast
+            entity: weather.forecast_home_3
+            forecast_type: daily
+          - type: entities
+            entities:
+              - entity: person.petra
+              - entity: person.charles_anepohl
+              - entity: person.ethan
+              - entity: person.nana
+              - entity: person.papa
+            state_color: true
+            theme: Caule Black Aqua Glass
+          - type: custom:mushroom-climate-card
+            entity: climate.living_room
+            show_temperature_control: true
+            hvac_modes:
+              - auto
+              - heat_cool
+              - cool
+              - heat
+            collapsible_controls: false
+            fill_container: false
+            icon: mdi:temperature-fahrenheit
+            layout_options:
+              grid_columns: 4
+              grid_rows: 2
+            secondary_info: state
+          - type: custom:mod-card
+            card:
+              type: iframe
+              url: https://dagammla.gitlab.io/keep-silk-open/iframe.html
+              aspect_ratio: 10%
+            style:
+              .: |
+                iframe {
+                  height: 50px !important;
+                  width: 50px !important;
+                }
+      - type: grid
+        cards:
+          - type: conditional
+            conditions:
+              - condition: state
+                entity: media_player.spotify_chuck
+                state: playing
+            card:
+              type: media-control
+              entity: media_player.spotify_chuck
+              theme: Caule Black Green
+          - type: conditional
+            conditions:
+              - condition: or
+                conditions:
+                  - condition: state
+                    entity: media_player.spotify_petra
+                    state: paused
+                  - condition: state
+                    entity: media_player.spotify_petra
+                    state: playing
+            card:
+              type: media-control
+              entity: media_player.spotify_petra
+              theme: Caule Black Coral
+          - type: conditional
+            conditions:
+              - condition: state
+                entity: media_player.spotify_ethan
+                state: playing
+              - condition: or
+                conditions:
+                  - condition: state
+                    entity: media_player.spotify_ethan
+                    state: paused
+            card:
+              type: media-control
+              entity: media_player.spotify_ethan
+              theme: Caule Dark Orange
+          - type: entities
+            entities:
+              - entity: light.office_lamp_3
+              - entity: light.blackboard
+              - entity: light.office_can_lights
+            state_color: true
+          - type: vertical-stack
+            cards:
+              - type: custom:mushroom-vacuum-card
+                entity: vacuum.buttercup
+                commands:
+                  - on_off
+                  - start_pause
+                  - return_home
+                  - stop
+                icon_animation: true
+                fill_container: true
+                layout: horizontal
+              - type: custom:mushroom-vacuum-card
+                entity: vacuum.moppy
+                commands:
+                  - on_off
+                  - start_pause
+                  - return_home
+                  - stop
+                layout: horizontal
+                icon_animation: true
+                fill_container: true
+              - type: custom:mushroom-vacuum-card
+                entity: vacuum.upstairs
+                commands:
+                  - on_off
+                  - start_pause
+                  - return_home
+                  - stop
+                name: DJ Roomba
+                fill_container: true
+                icon_animation: true
+                layout: horizontal
+          - initial_view: listWeek
+            type: calendar
+            entities:
+              - calendar.ethan_s
+              - calendar.calendar_anepohl
+            theme: Caule Black Blue Glass
+      - type: grid
+        cards:
+          - type: conditional
+            conditions:
+              - condition: numeric_state
+                entity: sensor.aranet4_06901_carbon_dioxide
+                above: 800
+            card:
+              type: gauge
+              entity: sensor.aranet4_06901_carbon_dioxide
+              max: 1400
+              min: 600
+              needle: true
+              severity:
+                green: 400
+                yellow: 1000
+                red: 1200
+              name: Co2
+          - card:
+              content: >-
+                <font color="orange"><center><h2>Pool requires
+                attention,<br>check iopool app.</h2></center></font>
+              type: markdown
+            conditions:
+              - entity: sensor.iopool_action_required
+                state: 'True'
+            type: conditional
+            view_layout:
+              position: sidebar
+          - type: conditional
+            conditions:
+              - condition: state
+                entity: sensor.tv364819n_laundry_machine_state
+                state_not: 'Off'
+              - condition: state
+                entity: sensor.tv364819n_laundry_machine_state
+                state_not: unavailable
+            card:
+              type: vertical-stack
+              cards:
+                - type: entity
+                  entity: sensor.tv364819n_laundry_time_remaining
+                  name: Washer Time Remaining
+          - type: conditional
+            conditions:
+              - condition: state
+                entity: sensor.fz925532g_laundry_machine_state
+                state_not: 'Off'
+              - condition: or
+                conditions:
+                  - condition: state
+                    entity: sensor.fz925532g_laundry_machine_state
+                    state_not: unavailable
+            card:
+              type: vertical-stack
+              cards:
+                - type: entity
+                  entity: sensor.fz925532g_laundry_time_remaining
+                  name: Dryer Time Remaining
+          - show_state: false
+            show_name: false
+            camera_view: live
+            type: picture-entity
+            aspect_ratio: '16:9'
+            layout_options:
+              grid_columns: 4
+              grid_rows: 4
+            entity: camera.g4_doorbell_pro_high_resolution_channel
+          - show_state: false
+            show_name: false
+            camera_view: live
+            type: picture-entity
+            entity: camera.g5_turret_ultra_high_resolution_channel
+            aspect_ratio: '16:11'
+            layout_options:
+              grid_columns: 4
+              grid_rows: 3
+            camera_image: camera.g5_turret_ultra_high_resolution_channel
+          - show_state: false
+            show_name: false
+            camera_view: live
+            type: picture-entity
+            entity: camera.g5_dome_ultra_high_resolution_channel_2
+            aspect_ratio: '16:9'
+            camera_image: camera.g5_dome_ultra_high_resolution_channel_2
+      - type: grid
+        cards: []
+    background:
+      image: /api/image/serve/a383dead98729c112a7e0c8d42073620/original
+    max_columns: 3
+    cards: []
+  - title: Kitchen
+    path: '2'
+    type: sections
+    sections:
+      - type: grid
+        cards:
+          - type: entities
+            entities:
+              - entity: person.petra
+              - entity: person.charles_anepohl
+              - entity: person.ethan
+              - entity: person.nana
+              - entity: person.papa
+            state_color: false
+            theme: Caule Black Rose Glass
+            show_header_toggle: false
+          - initial_view: listWeek
+            type: calendar
+            entities:
+              - calendar.ethan_s
+              - calendar.calendar_anepohl
+            theme: Caule Black Rose Glass
+          - type: tile
+            entity: automation.alexa_open_kitchen_dash_every_hour
+            layout_options:
+              grid_columns: 4
+              grid_rows: 1
+            name: Dashboard Refresh
+            vertical: false
+            hide_state: false
+            show_entity_picture: false
+            color: red
+      - type: grid
+        cards:
+          - type: custom:clock-weather-card
+            entity: weather.living_room
+          - show_state: false
+            show_name: false
+            camera_view: live
+            type: picture-entity
+            aspect_ratio: '16:9'
+            layout_options:
+              grid_columns: 4
+              grid_rows: 4
+            entity: camera.g4_doorbell_pro_high_resolution_channel
+          - type: vertical-stack
+            cards:
+              - type: conditional
+                conditions:
+                  - entity: light.upstairs_hall
+                    state: 'on'
+                card:
+                  type: entities
+                  entities:
+                    - entity: light.upstairs_hall
+              - type: conditional
+                conditions:
+                  - entity: light.above_window
+                    state: 'on'
+                card:
+                  type: entities
+                  entities:
+                    - entity: light.above_window
+              - type: conditional
+                conditions:
+                  - entity: light.accent
+                    state: 'on'
+                card:
+                  type: entities
+                  entities:
+                    - entity: light.accent
+              - type: conditional
+                conditions:
+                  - entity: light.sleepnumber_master_light_3
+                    state: 'on'
+                card:
+                  type: entities
+                  entities:
+                    - entity: light.sleepnumber_master_light_3
+              - type: conditional
+                conditions:
+                  - entity: light.behind_tv
+                    state: 'on'
+                card:
+                  type: entities
+                  entities:
+                    - entity: light.behind_tv
+              - type: conditional
+                conditions:
+                  - entity: light.beside_tables
+                    state: 'on'
+                card:
+                  type: entities
+                  entities:
+                    - entity: light.beside_tables
+              - type: conditional
+                conditions:
+                  - entity: light.blackboard
+                    state: 'on'
+                card:
+                  type: entities
+                  entities:
+                    - entity: light.blackboard
+              - type: conditional
+                conditions:
+                  - entity: light.breakfast_area
+                    state: 'on'
+                card:
+                  type: entities
+                  entities:
+                    - entity: light.breakfast_area
+              - type: conditional
+                conditions:
+                  - condition: state
+                    entity: light.laundry_lamp
+                    state: 'on'
+                card:
+                  type: entities
+                  entities:
+                    - entity: light.laundry_lamp
+              - type: conditional
+                conditions:
+                  - entity: light.dining_room_lights
+                    state: 'on'
+                card:
+                  type: entities
+                  entities:
+                    - entity: light.dining_room_lights
+              - type: conditional
+                conditions:
+                  - entity: light.downstairs_bathroom_light
+                    state: 'on'
+                card:
+                  type: entities
+                  entities:
+                    - entity: light.downstairs_bathroom_light
+              - type: conditional
+                conditions:
+                  - entity: light.downstairs_guest_light
+                    state: 'on'
+                card:
+                  type: entities
+                  entities:
+                    - entity: light.downstairs_guest_light
+              - type: conditional
+                conditions:
+                  - entity: light.ethans_bathroom
+                    state: 'on'
+                card:
+                  type: entities
+                  entities:
+                    - entity: light.ethans_bathroom
+              - type: conditional
+                conditions:
+                  - entity: light.ethans_tub
+                    state: 'on'
+                card:
+                  type: entities
+                  entities:
+                    - entity: light.ethans_tub
+              - type: conditional
+                conditions:
+                  - entity: light.ethans_room_strip_light
+                    state: 'on'
+                card:
+                  type: entities
+                  entities:
+                    - entity: light.ethans_room_strip_light
+              - type: conditional
+                conditions:
+                  - entity: light.ethans_room_right
+                    state: 'on'
+                card:
+                  type: entities
+                  entities:
+                    - entity: light.ethans_room_right
+              - type: conditional
+                conditions:
+                  - condition: state
+                    entity: light.floor_lamp
+                    state: 'on'
+                card:
+                  type: entities
+                  entities:
+                    - entity: light.floor_lamp
+              - type: conditional
+                conditions:
+                  - entity: light.front_porch
+                    state: 'on'
+                card:
+                  type: entities
+                  entities:
+                    - entity: light.front_porch
+              - type: conditional
+                conditions:
+                  - condition: state
+                    entity: light.end_table_light
+                    state: 'on'
+                card:
+                  type: entities
+                  entities:
+                    - entity: light.end_table_light
+              - type: conditional
+                conditions:
+                  - condition: state
+                    entity: light.sofa_table_light_2
+                    state: 'on'
+                card:
+                  type: entities
+                  entities:
+                    - entity: light.sofa_table_light_2
+              - type: conditional
+                conditions:
+                  - entity: light.hallway
+                    state: 'on'
+                card:
+                  type: entities
+                  entities:
+                    - entity: light.hallway
+              - type: conditional
+                conditions:
+                  - entity: light.headboard
+                    state: 'on'
+                card:
+                  type: entities
+                  entities:
+                    - entity: light.headboard
+              - type: conditional
+                conditions:
+                  - entity: light.living_room_cans
+                    state: 'on'
+                card:
+                  type: entities
+                  entities:
+                    - entity: light.living_room_cans
+              - type: conditional
+                conditions:
+                  - condition: state
+                    entity: light.upstairs_guest_lamps
+                    state: 'on'
+                card:
+                  type: entities
+                  entities:
+                    - entity: light.upstairs_guest_lamps
+              - type: conditional
+                conditions:
+                  - entity: light.living_room_painting
+                    state: 'on'
+                card:
+                  type: entities
+                  entities:
+                    - entity: light.living_room_painting
+              - type: conditional
+                conditions:
+                  - entity: light.main_kitchen_area
+                    state: 'on'
+                card:
+                  type: entities
+                  entities:
+                    - entity: light.main_kitchen_area
+              - type: conditional
+                conditions:
+                  - entity: light.master_bathroom_ceiling
+                    state: 'on'
+                card:
+                  type: entities
+                  entities:
+                    - entity: light.master_bathroom_ceiling
+              - type: conditional
+                conditions:
+                  - entity: light.master_bathroom_lights
+                    state: 'on'
+                card:
+                  type: entities
+                  entities:
+                    - entity: light.master_bathroom_lights
+              - type: conditional
+                conditions:
+                  - entity: light.master_ceiling_light
+                    state: 'on'
+                card:
+                  type: entities
+                  entities:
+                    - entity: light.master_ceiling_light
+              - type: conditional
+                conditions:
+                  - entity: light.media_room_cans
+                    state: 'on'
+                card:
+                  type: entities
+                  entities:
+                    - entity: light.media_room_cans
+              - type: conditional
+                conditions:
+                  - entity: light.movie_room_left
+                    state: 'on'
+                card:
+                  type: entities
+                  entities:
+                    - entity: light.movie_room_left
+              - type: conditional
+                conditions:
+                  - entity: light.movie_room_right
+                    state: 'on'
+                card:
+                  type: entities
+                  entities:
+                    - entity: light.movie_room_right
+              - type: conditional
+                conditions:
+                  - entity: light.office_lamp_3
+                    state: 'on'
+                card:
+                  type: entities
+                  entities:
+                    - entity: light.office_lamp_3
+              - type: conditional
+                conditions:
+                  - entity: light.outside_bathroom
+                    state: 'on'
+                card:
+                  type: entities
+                  entities:
+                    - entity: light.outside_bathroom
+              - type: conditional
+                conditions:
+                  - entity: light.pendants
+                    state: 'on'
+                card:
+                  type: entities
+                  entities:
+                    - entity: light.pendants
+              - type: conditional
+                conditions:
+                  - entity: light.play_room_ceiling_light
+                    state: 'on'
+                card:
+                  type: entities
+                  entities:
+                    - entity: light.play_room_ceiling_light
+              - type: conditional
+                conditions:
+                  - entity: switch.master_bathroom_fart_fan
+                    state: 'on'
+                card:
+                  type: entities
+                  entities:
+                    - entity: switch.master_bathroom_fart_fan
+                      state: 'on'
+              - type: conditional
+                conditions:
+                  - entity: switch.downstairs_bathroom_fart_fan
+                    state: 'on'
+                card:
+                  type: entities
+                  entities:
+                    - entity: switch.downstairs_bathroom_fart_fan
+                      state_color: true
+              - type: conditional
+                conditions:
+                  - entity: switch.master_bathroom_ceiling_fan
+                    state: 'on'
+                card:
+                  type: entities
+                  entities:
+                    - entity: switch.master_bathroom_ceiling_fan
+              - type: conditional
+                conditions:
+                  - entity: switch.master_fan
+                    state: 'on'
+                card:
+                  type: entities
+                  entities:
+                    - entity: switch.master_fan
+              - type: conditional
+                conditions:
+                  - entity: switch.upstairs_guest_fan
+                    state: 'on'
+                card:
+                  type: entities
+                  entities:
+                    - entity: switch.upstairs_guest_fan
+              - type: conditional
+                conditions:
+                  - entity: switch.playroom_fan
+                    state: 'on'
+                card:
+                  type: entities
+                  entities:
+                    - entity: switch.playroom_fan
+              - type: conditional
+                conditions:
+                  - entity: switch.ethans_fan
+                    state: 'on'
+                card:
+                  type: entities
+                  entities:
+                    - entity: switch.ethans_fan
+              - type: conditional
+                conditions:
+                  - entity: switch.downstairs_guest_fan
+                    state: 'on'
+                card:
+                  type: entities
+                  entities:
+                    - entity: switch.downstairs_guest_fan
+              - type: conditional
+                conditions:
+                  - entity: switch.basement_stairs
+                    state: 'on'
+                card:
+                  type: entities
+                  entities:
+                    - entity: switch.basement_stairs
+              - type: conditional
+                conditions:
+                  - entity: switch.living_room_fan
+                    state: 'on'
+                card:
+                  type: entities
+                  entities:
+                    - entity: switch.living_room_fan
+              - type: conditional
+                conditions:
+                  - condition: state
+                    entity: light.stairs
+                    state: 'on'
+                card:
+                  type: entities
+                  entities:
+                    - entity: light.stairs
+      - type: grid
+        cards:
+          - type: conditional
+            conditions:
+              - condition: or
+                conditions:
+                  - condition: state
+                    entity: media_player.spotify_chuck
+                    state: paused
+                  - condition: state
+                    entity: media_player.spotify_chuck
+                    state: playing
+            card:
+              type: media-control
+              entity: media_player.spotify_chuck
+              theme: Caule Black Blue
+          - type: conditional
+            conditions:
+              - condition: state
+                entity: media_player.spotify_petra
+                state: playing
+              - condition: or
+                conditions:
+                  - condition: state
+                    entity: media_player.spotify_petra
+                    state: paused
+            card:
+              type: media-control
+              entity: media_player.spotify_petra
+              theme: Caule Black Coral
+          - type: conditional
+            conditions:
+              - condition: state
+                entity: media_player.spotify_ethan
+                state: playing
+              - condition: or
+                conditions:
+                  - condition: state
+                    entity: media_player.spotify_ethan
+                    state: paused
+            card:
+              type: media-control
+              entity: media_player.spotify_ethan
+              theme: Caule Black Green
+          - type: conditional
+            conditions:
+              - condition: state
+                entity: weather.master
+                state_not: sunny
+              - condition: or
+                conditions:
+                  - condition: state
+                    entity: weather.master
+                    state_not: partlycloudy
+            card:
+              type: custom:weather-radar-card
+              square_map: true
+              show_recenter: true
+              map_style: Dark
+              extra_labels: false
+              show_range: false
+              show_marker: true
+              zoom_level: 10
+              data_source: RainViewer-NEXRAD
+          - show_state: false
+            show_name: false
+            camera_view: live
+            type: picture-entity
+            entity: camera.g5_turret_ultra_high_resolution_channel
+            aspect_ratio: '16:11'
+            layout_options:
+              grid_columns: 4
+              grid_rows: 3
+            camera_image: camera.g5_turret_ultra_high_resolution_channel
+          - type: vertical-stack
+            cards:
+              - type: gauge
+                entity: sensor.iopool_temperature
+                segments:
+                  - from: 78
+                    color: '#ffa600'
+                  - from: 90
+                    color: '#43a047'
+                  - from: 102
+                    color: '#ffa600'
+                  - from: 102
+                    color: '#db4437'
+                min: 60
+                max: 105
+                needle: true
+                name: Water Temperature
+              - type: gauge
+                entity: sensor.iopool_ph
+                segments:
+                  - from: 0
+                    color: '#db4437'
+                  - from: 6.8
+                    color: '#ffa600'
+                  - from: 7.1
+                    color: '#43a047'
+                  - from: 7.7
+                    color: '#ffa600'
+                  - from: 8.1
+                    color: '#db4437'
+                min: 6.4
+                max: 8.4
+                needle: true
+                name: pH
+              - type: gauge
+                entity: sensor.iopool_orp
+                segments:
+                  - from: 0
+                    color: '#db4437'
+                  - from: 550
+                    color: '#ffa600'
+                  - from: 650
+                    color: '#43a047'
+                  - from: 800
+                    color: '#ffa600'
+                  - from: 1000
+                    color: '#db4437'
+                min: 350
+                max: 1100
+                needle: true
+                name: Disinfection potential
+          - type: vertical-stack
+            cards:
+              - type: conditional
+                conditions:
+                  - condition: state
+                    entity: sensor.media_server
+                    state_not: '0'
+                card:
+                  type: gauge
+                  entity: sensor.media_server
+                  theme: Caule Black Coral
+                  severity:
+                    green: 0
+                    yellow: 15
+                    red: 20
+                  needle: true
+                  max: 22
+                  name: Active Streams
+      - type: grid
+        cards:
+          - type: conditional
+            conditions:
+              - condition: numeric_state
+                entity: sensor.e_tron_r_gt_hybrid_range
+                below: 85
+              - condition: state
+                entity: sensor.e_tron_r_gt_plug_state
+                state_not: connected
+            card:
+              type: vertical-stack
+              cards:
+                - type: custom:mushroom-title-card
+                  title: The Audi is in need of a charge!!
+                  subtitle: This is because it has less than 85 miles left
+                - title: Audi E-Tron R GT
+                  image_url: /api/image/serve/031157fda2fc5df286139e360c15ad5c/original
+                  charging_image_url: ''
+                  vehicle_type: EV
+                  unit_type: mi
+                  level_entity: ''
+                  range_entity: ''
+                  charging_status_entity: sensor.e_tron_r_gt_state_of_charge
+                  location_entity: ''
+                  mileage_entity: sensor.e_tron_r_gt_mileage
+                  show_level: true
+                  show_range: true
+                  show_location: true
+                  show_mileage: false
+                  show_car_state: false
+                  show_charge_limit: true
+                  icon_grid_entities: []
+                  custom_icons: {}
+                  icon_interactions: {}
+                  icon_styles: {}
+                  hybrid_display_order: fuel_first
+                  car_state_entity: sensor.e_tron_r_gt_plug_state
+                  charge_limit_entity: sensor.e_tron_r_gt_target_state_of_charge
+                  icon_size: 24
+                  icon_gap: 12
+                  showEntityInformation: true
+                  type: custom:ultra-vehicle-card
+                  battery_level_entity: sensor.e_tron_r_gt_primary_engine_percent
+                  battery_range_entity: sensor.e_tron_r_gt_hybrid_range
+                  fuel_level_entity: ''
+                  fuel_range_entity: ''
+                  show_battery: true
+                  show_battery_range: true
+                  show_fuel: true
+                  show_fuel_range: true
+                  cardBackgroundColor: ''
+                  barBackgroundColor: ''
+                  barFillColor: ''
+                  limitIndicatorColor: ''
+                  iconActiveColor: ''
+                  iconInactiveColor: ''
+                  show_charging: true
+          - card:
+              content: >-
+                <font color="orange"><center><h2>Pool requires
+                attention,<br>check iopool app.</h2></center></font>
+              type: markdown
+            conditions:
+              - entity: sensor.iopool_action_required
+                state: 'True'
+            type: conditional
+            view_layout:
+              position: sidebar
+          - type: conditional
+            conditions:
+              - condition: state
+                entity: binary_sensor.mon_fri
+                state: 'on'
+              - condition: state
+                entity: binary_sensor.5_7am
+                state: 'on'
+              - condition: state
+                entity: person.petra
+                state: home
+            card:
+              type: entity
+              entity: sensor.boot_camp
+              state_color: false
+          - type: conditional
+            conditions:
+              - condition: state
+                entity: binary_sensor.petra_work
+                state: 'on'
+              - condition: state
+                entity: binary_sensor.7_11am
+                state: 'on'
+              - condition: state
+                entity: person.petra
+                state: home
+            card:
+              type: entity
+              state_color: false
+              entity: sensor.ovo_west_salon
+          - type: conditional
+            conditions:
+              - condition: state
+                entity: sensor.tv364819n_laundry_machine_state
+                state_not: 'Off'
+              - condition: state
+                entity: sensor.tv364819n_laundry_machine_state
+                state_not: unavailable
+            card:
+              type: vertical-stack
+              cards:
+                - type: entity
+                  entity: sensor.tv364819n_laundry_time_remaining
+                  name: Washer Time Remaining
+          - type: conditional
+            conditions:
+              - condition: state
+                entity: sensor.fz925532g_laundry_machine_state
+                state_not: 'Off'
+              - condition: or
+                conditions:
+                  - condition: state
+                    entity: sensor.fz925532g_laundry_machine_state
+                    state_not: unavailable
+            card:
+              type: vertical-stack
+              cards:
+                - type: entity
+                  entity: sensor.fz925532g_laundry_time_remaining
+                  name: Dryer Time Remaining
+          - type: conditional
+            conditions:
+              - condition: state
+                entity: switch.dishwasher
+                state: 'on'
+            card:
+              type: entity
+              entity: sensor.dishwasher_dishwasher_completion_time
+              state_color: true
+          - type: conditional
+            conditions:
+              - condition: state
+                entity: binary_sensor.trash_day
+                state: 'on'
+              - condition: state
+                entity: binary_sensor.5_8pm
+                state: 'on'
+            card:
+              type: picture
+              image: >-
+                https://img.freepik.com/premium-vector/cute-garbage-can-character-flat-cartoon-emoticon-vector-template-design-illustration_570764-2912.jpg
+          - type: horizontal-stack
+            cards:
+              - show_name: true
+                show_icon: true
+                type: button
+                tap_action:
+                  action: toggle
+                entity: switch.guest
+                icon: mdi:wifi
+                name: Guest Wifi
+                show_state: true
+              - type: picture
+                theme: Caule Black Aqua
+                image: /local/custom-lovelace/QR/Guest QR.png
+          - type: picture
+            image: /local/Pictures/Pic1.jpeg
+          - type: custom:mod-card
+            card:
+              type: iframe
+              url: https://dagammla.gitlab.io/keep-silk-open/iframe.html
+              aspect_ratio: 10%
+            style:
+              .: |
+                iframe {
+                  height: 50px !important;
+                  width: 50px !important;
+                }
+          - type: conditional
+            conditions:
+              - condition: state
+                entity: sensor.cph50_network
+                state_not: Connected
+            card:
+              type: custom:mushroom-title-card
+              title: Car Charger is Offline
+              subtitle: Need to go flip the breaker in the basement
+    background:
+      image: /api/image/serve/44337cef13ccbf1a4638ca76c73bd91b/original
+    cards: []
+    max_columns: 4
+  - title: Downstairs-Guest
+    path: '3'
+    type: sections
+    sections:
+      - type: grid
+        cards:
+          - type: custom:clock-weather-card
+            entity: weather.forecast_home_3
+          - show_name: true
+            show_icon: true
+            type: button
+            tap_action:
+              action: toggle
+            entity: switch.downstairs_guest_fan
+            show_state: true
+          - show_name: true
+            show_icon: true
+            type: button
+            tap_action:
+              action: toggle
+            entity: light.downstairs_guest_light
+          - type: custom:mod-card
+            card:
+              type: iframe
+              url: https://dagammla.gitlab.io/keep-silk-open/iframe.html
+              aspect_ratio: 5%
+            style:
+              .: |
+                iframe {
+                  height: 50px !important;
+                  width: 50px !important;
+                }
+      - type: grid
+        cards:
+          - type: custom:weather-radar-card
+            map_style: Dark
+            static_map: true
+            show_range: true
+            show_zoom: true
+            show_playback: true
+            show_marker: true
+            zoom_level: 10
+            data_source: RainViewer-NEXRAD
+            layout_options:
+              grid_columns: 4
+              grid_rows: 1
+            extra_labels: false
+            show_recenter: false
+            square_map: true
+      - type: grid
+        cards: []
+    max_columns: 4
+    cards: []
+    background:
+      image: /api/image/serve/496165a2363962f61ff8abddf5000f6c/original
+  - title: Master-Closet
+    path: '4'
+    type: sections
+    sections:
+      - type: grid
+        cards:
+          - type: custom:clock-weather-card
+            entity: weather.forecast_home_3
+          - type: custom:mod-card
+            card:
+              type: iframe
+              url: https://dagammla.gitlab.io/keep-silk-open/iframe.html
+              aspect_ratio: 10%
+            style:
+              .: |
+                iframe {
+                  height: 50px !important;
+                  width: 50px !important;
+                }
+      - type: grid
+        cards:
+          - type: custom:weather-radar-card
+            map_style: Dark
+            data_source: RainViewer-NEXRAD
+    max_columns: 4
+    cards: []
+    background:
+      image: /api/image/serve/1cc90b23232ef1cf37c6ec0bd3f86b91/original
+  - title: Security
+    path: '5'
+    type: sections
+    sections:
+      - type: grid
+        cards:
+          - type: entities
+            entities:
+              - entity: binary_sensor.back_door_opening
+              - entity: binary_sensor.front_door_open
+              - entity: binary_sensor.mud_room_door_sensor_state_any
+                icon: mdi:door
+              - entity: binary_sensor.basement_door_sensor_state_any
+            state_color: true
+            title: Door Status
+            view_layout:
+              position: main
+          - type: entities
+            entities:
+              - entity: binary_sensor.master_occupancy
+              - entity: binary_sensor.master_bath_occupancy
+              - entity: binary_sensor.master_closet_occupancy
+              - entity: binary_sensor.upstairs_guest_occupancy
+              - entity: binary_sensor.living_room_occupancy
+              - entity: binary_sensor.kitchen_occupancy
+              - entity: binary_sensor.dining_room_occupancy
+              - entity: binary_sensor.downstairs_guest_occupancy
+              - entity: binary_sensor.ethans_room_occupancy
+              - entity: binary_sensor.media_room_occupancy
+              - entity: binary_sensor.office_occupancy
+              - entity: binary_sensor.play_room_occupancy
+              - entity: binary_sensor.basement_motion_motion
+              - entity: binary_sensor.foyer_motion
+              - entity: binary_sensor.garage_motion
+              - entity: binary_sensor.tandem_motion_sensor_motion
+              - entity: binary_sensor.gym_motion_motion
+            title: Activity Status
+            state_color: true
+            view_layout:
+              position: sidebar
+      - type: grid
+        cards:
+          - show_state: false
+            show_name: true
+            camera_view: auto
+            type: picture-entity
+            entity: camera.10_0_2_150
+          - show_state: false
+            show_name: true
+            camera_view: auto
+            type: picture-entity
+            entity: camera.driveway
+          - show_state: false
+            show_name: true
+            camera_view: auto
+            type: picture-entity
+            entity: camera.10_0_2_150_4
+      - type: grid
+        cards:
+          - show_state: false
+            show_name: true
+            camera_view: auto
+            type: picture-entity
+            entity: camera.front_door
+          - show_state: false
+            show_name: true
+            camera_view: auto
+            type: picture-entity
+            entity: camera.10_0_2_150_2
+          - show_state: false
+            show_name: true
+            camera_view: auto
+            type: picture-entity
+            entity: camera.10_0_2_150_5
+      - type: grid
+        cards:
+          - show_state: false
+            show_name: true
+            camera_view: auto
+            type: picture-entity
+            entity: camera.front_yard
+          - show_state: false
+            show_name: true
+            camera_view: auto
+            type: picture-entity
+            entity: camera.10_0_2_150_3
+    max_columns: 4
+    cards: []
+  - title: LivingRoom
+    path: '6'
+    visible:
+      - user: 59cebb6683074bdbb54760e04755aa15
+      - user: e0f4a25d8b0545679d176a719ac43401
+    cards:
+      - type: entities
+        entities:
+          - entity: person.ethan
+          - entity: person.petra
+          - entity: person.charles_anepohl
+        state_color: true
+        title: Family
+        theme: Caule Black Aqua Glass
+      - type: gauge
+        entity: sensor.media_server
+        theme: Caule Black Aqua Glass
+        needle: true
+        severity:
+          green: 0
+          yellow: 10
+          red: 15
+        max: 20
+      - type: custom:mushroom-climate-card
+        entity: climate.living_room
+        show_temperature_control: true
+        hvac_modes:
+          - auto
+        collapsible_controls: true
+        fill_container: false
+        primary_info: name
+        icon: mdi:temperature-fahrenheit
+      - type: custom:digital-clock
+      - type: thermostat
+        entity: climate.living_room
+        theme: Caule Black Aqua Glass
+      - show_state: false
+        show_name: false
+        camera_view: auto
+        type: picture-entity
+        entity: camera.g5_turret_ultra_high_resolution_channel_3
+        aspect_ratio: '16:9'
+        camera_image: camera.g5_turret_ultra_high_resolution_channel_3
+      - show_state: false
+        show_name: false
+        camera_view: live
+        type: picture-entity
+        entity: camera.g4_doorbell_pro_high_resolution_channel
+        aspect_ratio: '16:10'
+      - type: entities
+        entities:
+          - entity: scene.living_room_tv_lights_on
+          - entity: scene.living_room_tv_lights_dim
+        state_color: true
+        title: 'Scene '
+      - type: horizontal-stack
+        cards:
+          - show_name: true
+            show_icon: true
+            type: button
+            tap_action:
+              action: toggle
+            entity: media_player.denon_livingroom
+            show_state: false
+          - show_name: true
+            show_icon: true
+            type: button
+            tap_action:
+              action: toggle
+            entity: remote.samsung_8_series_85
+            name: Samsung 85
+      - type: conditional
+        conditions:
+          - condition: state
+            entity: person.petra
+            state: home
+        card:
+          type: entities
+          entities:
+            - entity: sensor.e_tron_r_gt_last_update
+            - entity: sensor.e_tron_r_gt_primary_engine_percent
+            - entity: sensor.e_tron_r_gt_range
+            - entity: sensor.e_tron_r_gt_plug_state
+          state_color: false
+      - type: horizontal-stack
+        cards:
+          - show_name: true
+            show_icon: true
+            type: button
+            tap_action:
+              action: toggle
+            entity: light.under_tv_light
+            show_state: false
+          - show_name: true
+            show_icon: true
+            type: button
+            tap_action:
+              action: toggle
+            entity: switch.living_room_fan
+            name: Fan
+      - type: entities
+        entities:
+          - entity: sensor.media_server
+          - entity: sensor.sabnzbd_status
+          - entity: sensor.sabnzbd_queue
+          - entity: sensor.sabnzbd_speed
+        theme: Caule Black Aqua Glass
+        state_color: true
+      - show_state: false
+        show_name: false
+        camera_view: live
+        type: picture-entity
+        entity: camera.g5_turret_ultra_high_resolution_channel
+        aspect_ratio: '16:9'
+        camera_image: camera.g5_turret_ultra_high_resolution_channel
+      - type: horizontal-stack
+        cards:
+          - type: light
+            entity: light.living_room_painting
+          - type: light
+            entity: light.living_room_cans
+    background:
+      image: /api/image/serve/6f595d8f4d4ec3671dc5bdb292da1dfd/original
+  - title: Cameras
+    path: '7'
+    icon: mdi:cctv
+    type: sidebar
+    visible:
+      - user: 59cebb6683074bdbb54760e04755aa15
+      - user: e0f4a25d8b0545679d176a719ac43401
+    cards:
+      - square: false
+        type: grid
+        columns: 3
+        cards:
+          - show_state: false
+            show_name: true
+            camera_view: live
+            type: picture-entity
+            entity: camera.g5_dome_ultra_high_resolution_channel_2
+            camera_image: camera.g5_dome_ultra_high_resolution_channel_2
+          - camera_view: live
+            type: picture-glance
+            title: Front Door
+            entities: []
+            camera_image: camera.g4_doorbell_pro_high_resolution_channel
+          - show_state: false
+            show_name: true
+            camera_view: auto
+            type: picture-entity
+            entity: camera.g5_dome_ultra_high_resolution_channel
+            camera_image: camera.g5_dome_ultra_high_resolution_channel
+          - show_state: false
+            show_name: true
+            camera_view: live
+            type: picture-entity
+            entity: camera.g5_turret_ultra_high_resolution_channel
+            camera_image: camera.g5_turret_ultra_high_resolution_channel
+          - show_state: false
+            show_name: true
+            camera_view: auto
+            type: picture-entity
+            entity: camera.g5_turret_ultra_high_resolution_channel_5
+            camera_image: camera.g5_turret_ultra_high_resolution_channel_5
+          - show_state: false
+            show_name: true
+            camera_view: auto
+            type: picture-entity
+            entity: camera.g5_turret_ultra_high_resolution_channel_2
+            camera_image: camera.g5_turret_ultra_high_resolution_channel_2
+          - show_state: false
+            show_name: true
+            camera_view: live
+            type: picture-entity
+            entity: camera.g5_turret_ultra_high_resolution_channel_3
+            camera_image: camera.g5_turret_ultra_high_resolution_channel_3
+          - show_state: false
+            show_name: true
+            camera_view: live
+            type: picture-entity
+            entity: camera.g5_turret_ultra_high_resolution_channel_4
+            camera_image: camera.g5_turret_ultra_high_resolution_channel_4
+        view_layout:
+          position: main
+      - type: entities
+        entities:
+          - entity: cover.ratgdov25i_1936e9_door
+            name: 2 Car Garage Door
+          - entity: cover.ratgdov25i_0afc75_door
+            name: Tandem Garage Door
+          - entity: binary_sensor.front_door_open
+            name: Front Doors
+          - entity: binary_sensor.back_door_opening
+            name: Back Door
+          - entity: binary_sensor.mud_room_door_sensor_state_any
+            icon: mdi:door
+            name: Mud Room Door
+          - entity: binary_sensor.tandem_patio_door_opening
+            name: Tandem Patio Door
+          - entity: binary_sensor.basement_outside_door_sensor_state_any
+            icon: mdi:door-sliding
+            name: Basement Doors
+          - entity: binary_sensor.gym_windows
+            name: Gym Windows
+          - entity: binary_sensor.screen_porch_window_opening
+            name: Screen Porch Window
+          - entity: binary_sensor.dining_room_windows
+        state_color: true
+        title: Door Status
+        view_layout:
+          position: main
+      - type: entities
+        entities:
+          - entity: binary_sensor.master_occupancy
+          - entity: binary_sensor.master_bath_occupancy
+          - entity: binary_sensor.master_closet_occupancy
+          - entity: binary_sensor.upstairs_guest_occupancy
+          - entity: binary_sensor.living_room_occupancy
+          - entity: binary_sensor.kitchen_occupancy
+          - entity: binary_sensor.dining_room_occupancy
+          - entity: binary_sensor.downstairs_guest_occupancy
+          - entity: binary_sensor.ethans_room_occupancy
+          - entity: binary_sensor.media_room_occupancy
+          - entity: binary_sensor.office_occupancy
+          - entity: binary_sensor.play_room_occupancy
+          - entity: binary_sensor.main_floor_stairs_motion
+            name: Main Stairs Motion
+          - entity: binary_sensor.basement_motion
+            name: Basement Motion
+          - entity: binary_sensor.2_car_motion
+          - entity: binary_sensor.gym_motion_motion
+            name: Gym Motion
+          - entity: binary_sensor.tandem_motion
+          - entity: binary_sensor.hue_motion_opening
+            name: Living Room Motion
+          - entity: binary_sensor.basement_stairs_motion_motion
+            name: Basement Stairs Motion
+        title: Activity Status
+        state_color: true
+        view_layout:
+          position: sidebar
+      - type: custom:mod-card
+        card:
+          type: iframe
+          url: https://dagammla.gitlab.io/keep-silk-open/iframe.html
+          aspect_ratio: 10%
+        style:
+          .: |
+            iframe {
+              height: 50px !important;
+              width: 50px !important;
+            }
+        view_layout:
+          position: sidebar
+    background:
+      image: /api/image/serve/e50af03a5cbe8c14f7cc0ee46cfd52da/original
+  - title: Ethans
+    path: '8'
+    type: sections
+    max_columns: 2
+    sections:
+      - type: grid
+        cards:
+          - type: conditional
+            conditions:
+              - condition: state
+                entity: media_player.spotify_ethan
+                state: playing
+              - condition: or
+                conditions:
+                  - condition: state
+                    entity: media_player.spotify_ethan
+                    state: paused
+            card:
+              type: media-control
+              entity: media_player.spotify_ethan
+              theme: Caule Black Green
+          - initial_view: listWeek
+            type: calendar
+            entities:
+              - calendar.ethan_s
+            title: Ethans Calendar
+            theme: Caule Black Green
+          - type: custom:mod-card
+            card:
+              type: iframe
+              url: https://dagammla.gitlab.io/keep-silk-open/iframe.html
+              aspect_ratio: 10%
+            style:
+              .: |
+                iframe {
+                  height: 50px !important;
+                  width: 50px !important;
+                }
+      - type: grid
+        cards:
+          - type: custom:digital-clock
+            theme: Caule Black Green
+          - type: conditional
+            conditions:
+              - condition: state
+                entity: sensor.ethans_room_echo_next_alarm
+                state_not: unknown
+              - condition: or
+                conditions:
+                  - condition: state
+                    entity: sensor.ethans_room_echo_next_alarm
+                    state_not: unavailable
+            card:
+              type: tile
+              entity: sensor.ethans_room_echo_next_alarm
+              color: primary
+              vertical: true
+              hide_state: false
+              show_entity_picture: false
+          - type: horizontal-stack
+            cards:
+              - show_name: true
+                show_icon: true
+                type: button
+                tap_action:
+                  action: toggle
+                entity: light.ethans_room_ceiling_light
+                show_state: true
+                theme: Caule Black Green
+              - show_name: true
+                show_icon: true
+                type: button
+                tap_action:
+                  action: toggle
+                entity: switch.ethans_fan
+                show_state: true
+                theme: Caule Black Green
+          - square: false
+            type: grid
+            cards:
+              - type: gauge
+                entity: sensor.ethan_iphone_battery_2
+                severity:
+                  green: 26
+                  yellow: 10
+                  red: 0
+                theme: Caule Black Green
+                needle: true
+              - type: gauge
+                severity:
+                  green: 26
+                  yellow: 10
+                  red: 0
+                entity: sensor.ethans_watch_battery_2
+                theme: Caule Black Green
+                needle: true
+              - type: gauge
+                entity: sensor.ethans_ipad_battery_level
+                severity:
+                  green: 26
+                  yellow: 10
+                  red: 0
+                theme: Caule Black Green Glass
+                needle: true
+            columns: 3
+    background:
+      image: /api/image/serve/f4be2ae552cce04edb13712e50e0fb81/original
+    cards: []
+  - title: Master-Bed
+    path: '9'
+    type: sections
+    sections:
+      - type: grid
+        cards:
+          - type: conditional
+            conditions:
+              - condition: numeric_state
+                entity: sensor.e_tron_r_gt_hybrid_range
+                below: 85
+              - condition: state
+                entity: sensor.e_tron_r_gt_plug_state
+                state: connected
+            card:
+              type: custom:mushroom-title-card
+              title: The Audi is in need of a charge!!
+              subtitle: this is because it less than 85 miles left
+          - card:
+              content: >-
+                <font color="orange"><center><h2>Pool requires
+                attention,<br>check iopool app.</h2></center></font>
+              type: markdown
+            conditions:
+              - entity: sensor.iopool_action_required
+                state: 'True'
+            type: conditional
+            view_layout:
+              position: sidebar
+          - type: conditional
+            conditions:
+              - condition: state
+                entity: sensor.tv364819n_laundry_machine_state
+                state_not: 'Off'
+              - condition: state
+                entity: sensor.tv364819n_laundry_machine_state
+                state_not: unavailable
+            card:
+              type: vertical-stack
+              cards:
+                - type: entity
+                  entity: sensor.tv364819n_laundry_time_remaining
+                  name: Washer Time Remaining
+          - type: conditional
+            conditions:
+              - condition: state
+                entity: sensor.fz925532g_laundry_machine_state
+                state_not: 'Off'
+              - condition: or
+                conditions:
+                  - condition: state
+                    entity: sensor.fz925532g_laundry_machine_state
+                    state_not: unavailable
+            card:
+              type: vertical-stack
+              cards:
+                - type: entity
+                  entity: sensor.fz925532g_laundry_time_remaining
+                  name: Dryer Time Remaining
+          - initial_view: listWeek
+            type: calendar
+            entities:
+              - calendar.calendar_anepohl
+              - calendar.ethan_s
+      - type: grid
+        cards:
+          - type: conditional
+            conditions:
+              - condition: state
+                entity: media_player.spotify_chuck
+                state: playing
+            card:
+              type: media-control
+              entity: media_player.spotify_chuck
+              theme: Caule Black Green
+          - type: conditional
+            conditions:
+              - condition: state
+                entity: media_player.spotify_petra
+                state: playing
+              - condition: or
+                conditions:
+                  - condition: state
+                    entity: media_player.spotify_petra
+                    state: paused
+            card:
+              type: media-control
+              entity: media_player.spotify_petra
+              theme: Caule Black Coral
+          - type: conditional
+            conditions:
+              - condition: state
+                entity: weather.home
+                state: unavailable
+            card:
+              show_current: true
+              show_forecast: false
+              type: weather-forecast
+              entity: weather.forecast_home_3
+              forecast_type: daily
+          - type: conditional
+            conditions:
+              - condition: state
+                entity: sensor.master_bedroom_echo_next_alarm
+                state_not: unknown
+              - condition: or
+                conditions:
+                  - condition: state
+                    entity: sensor.master_bedroom_echo_next_alarm
+                    state_not: unavailable
+            card:
+              type: tile
+              entity: sensor.master_bedroom_echo_next_alarm
+              color: primary
+              vertical: true
+              hide_state: false
+              show_entity_picture: false
+          - type: custom:mushroom-climate-card
+            entity: climate.master
+            show_temperature_control: true
+            hvac_modes:
+              - auto
+            collapsible_controls: true
+            fill_container: false
+            primary_info: name
+            icon: mdi:temperature-fahrenheit
+            layout_options:
+              grid_columns: 4
+              grid_rows: 2
+            layout: vertical
+          - show_name: true
+            show_icon: true
+            type: button
+            tap_action:
+              action: toggle
+            entity: light.master_ceiling_light
+            show_state: false
+            name: Light
+          - show_name: true
+            show_icon: true
+            type: button
+            tap_action:
+              action: toggle
+            entity: switch.master_fan
+            name: Fan
+          - show_name: true
+            show_icon: true
+            type: button
+            tap_action:
+              action: toggle
+            entity: light.floor_lamp
+            icon: mdi:floor-lamp
+            show_state: false
+            name: Floor Lamp
+          - show_name: true
+            show_icon: true
+            type: button
+            tap_action:
+              action: toggle
+            entity: light.beside_tables
+            icon: mdi:lamps
+          - type: tile
+            entity: automation.alexa_open_master_bedroom_dash_every_15
+            layout_options:
+              grid_columns: 4
+              grid_rows: 1
+            name: Dashboard Refresh
+            vertical: false
+            hide_state: false
+            show_entity_picture: false
+            color: light-blue
+          - type: custom:mod-card
+            card:
+              type: iframe
+              url: https://dagammla.gitlab.io/keep-silk-open/iframe.html
+              aspect_ratio: 10%
+            style:
+              .: |
+                iframe {
+                  height: 50px !important;
+                  width: 50px !important;
+                }
+          - type: custom:mushroom-chips-card
+            chips:
+              - type: menu
+              - type: action
+                icon_color: red
+                tap_action:
+                  action: call-service
+                  service: input_boolean.toggle
+                  target:
+                    entity_id: input_boolean.kiosk_mode
+                icon: mdi:arrow-expand
+  - title: Upstairs Guest
+    path: '10'
+    type: sections
+    sections:
+      - type: grid
+        cards:
+          - type: custom:clock-weather-card
+            entity: weather.forecast_home_3
+          - show_name: true
+            show_icon: true
+            type: button
+            tap_action:
+              action: toggle
+            entity: switch.upstairs_guest_fan
+            show_state: false
+            theme: Caule Black Aqua
+            name: Fan
+          - show_name: true
+            show_icon: true
+            type: button
+            tap_action:
+              action: toggle
+            entity: light.upstairs_guest_light
+            name: Light
+            theme: Caule Black Aqua
+          - type: custom:mod-card
+            card:
+              type: iframe
+              url: https://dagammla.gitlab.io/keep-silk-open/iframe.html
+              aspect_ratio: 5%
+            style:
+              .: |
+                iframe {
+                  height: 50px !important;
+                  width: 50px !important;
+                }
+      - type: grid
+        cards:
+          - type: custom:weather-radar-card
+            map_style: Dark
+            static_map: true
+            show_range: true
+            show_zoom: true
+            show_playback: true
+            show_marker: true
+            zoom_level: 10
+            data_source: RainViewer-NEXRAD
+            layout_options:
+              grid_columns: 4
+              grid_rows: 1
+            extra_labels: false
+            show_recenter: false
+            square_map: true
+    max_columns: 4
+    cards: []
+    background:
+      image: /api/image/serve/496165a2363962f61ff8abddf5000f6c/original
+  - path: '11'
+    title: Gym
+    icon: mdi:weight-lifter
+    cards: []
+    type: sections
+    sections:
+      - type: grid
+        cards:
+          - type: vertical-stack
+            cards:
+              - show_state: false
+                show_name: true
+                camera_view: live
+                type: picture-entity
+                camera_image: camera.front_door
+                entity: camera.g4_doorbell_pro_high_resolution_channel
+                name: Front Door
+              - show_state: false
+                show_name: true
+                camera_view: live
+                type: picture-entity
+                entity: camera.g5_turret_ultra_high_resolution_channel
+                camera_image: camera.g5_turret_ultra_high_resolution_channel
+              - show_state: false
+                show_name: true
+                camera_view: live
+                type: picture-entity
+                entity: camera.g5_dome_ultra_high_resolution_channel_2
+                camera_image: camera.g5_dome_ultra_high_resolution_channel_2
+          - type: custom:mod-card
+            card:
+              type: iframe
+              url: https://dagammla.gitlab.io/keep-silk-open/iframe.html
+              aspect_ratio: 10%
+            style:
+              .: |
+                iframe {
+                  height: 50px !important;
+                  width: 50px !important;
+                }
+  - title: small-fire
+    path: '12'
+    type: sections
+    background:
+      image: /api/image/serve/be8f971059d4f9c9543dd405ef1eaaea/original
+    sections:
+      - type: grid
+        cards:
+          - initial_view: listWeek
+            type: calendar
+            entities:
+              - calendar.ethan_s
+              - calendar.calendar_anepohl
+            theme: Caule Black Green
+      - type: grid
+        cards:
+          - show_current: true
+            show_forecast: true
+            type: weather-forecast
+            entity: weather.forecast_home_3
+            forecast_type: daily
+            theme: Caule Black Orange
+          - type: entities
+            entities:
+              - entity: person.ethan
+              - entity: person.petra
+              - entity: person.charles_anepohl
+              - entity: person.nana
+              - entity: person.papa
+            state_color: true
+            theme: Caule Black Green
+  - title: Laundry
+    path: '13'
+    type: sections
+    sections:
+      - type: grid
+        cards:
+          - type: picture-elements
+            image: local/Laundry/Washer-tall.png
+            elements:
+              - type: state-label
+                entity: sensor.tv364819n_laundry_time_remaining
+                style:
+                  top: 4%
+                  left: 84%
+                  transform: translate(-50%, -50%)
+                  font-size: 3em
+                  color: white
+                  background-color: black
+                  padding: 9px
+                  border-radius: 40px
+              - type: state-label
+                entity: sensor.tv364819n_laundry_washer_smart_dispense_loads_left
+                style:
+                  top: 4%
+                  left: 18%
+                  transform: translate(-50%, -50%)
+                  font-size: 2em
+                  color: white
+                  background-color: black
+                  padding: 7px
+                  border-radius: 10px
+              - type: state-label
+                entity: sensor.tv364819n_laundry_cycle
+                style:
+                  top: 85%
+                  left: 50%
+                  transform: translate(-50%, -50%)
+                  font-size: 4em
+                  color: white
+                  background-color: black
+                  padding: 10px
+                  border-radius: 10px
+              - type: state-label
+                entity: sensor.tv364819n_laundry_washer_washtemp_level
+                style:
+                  top: 93%
+                  left: 50%
+                  transform: translate(-50%, -50%)
+                  font-size: 3em
+                  color: white
+                  background-color: black
+                  padding: 8px
+                  border-radius: 10px
+          - type: custom:mod-card
+            card:
+              type: iframe
+              url: https://dagammla.gitlab.io/keep-silk-open/iframe.html
+              aspect_ratio: 10%
+            style:
+              .: |
+                iframe {
+                  height: 50px !important;
+                  width: 50px !important;
+                }
+      - type: grid
+        cards:
+          - type: picture-elements
+            image: local/Laundry/Dryer-Tall.png
+            elements:
+              - type: state-label
+                entity: sensor.fz925532g_laundry_time_remaining
+                style:
+                  top: 4%
+                  left: 83%
+                  transform: translate(-50%, -50%)
+                  font-size: 3em
+                  color: white
+                  background-color: black
+                  padding: 9px
+                  border-radius: 40px
+              - type: state-label
+                entity: binary_sensor.fz925532g_laundry_dryer_washerlink_status
+                style:
+                  top: 4%
+                  left: 16%
+                  transform: translate(-50%, -50%)
+                  font-size: 3em
+                  color: white
+                  background-color: black
+                  padding: 9px
+                  border-radius: 10px
+              - type: state-label
+                entity: sensor.fz925532g_laundry_cycle
+                style:
+                  top: 82%
+                  left: 50%
+                  transform: translate(-50%, -50%)
+                  font-size: 5em
+                  color: white
+                  background-color: black
+                  padding: 19px
+                  border-radius: 10px
+              - type: state-label
+                entity: sensor.fz925532g_laundry_dryer_drynessnew_level
+                style:
+                  top: 90%
+                  left: 50%
+                  transform: translate(-50%, -50%)
+                  font-size: 3em
+                  color: white
+                  background-color: black
+                  padding: 9px
+                  border-radius: 10px

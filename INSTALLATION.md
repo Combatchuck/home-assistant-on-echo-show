@@ -15,6 +15,8 @@ Open the dashboard click on "Edit Dashboard" in the top right corner. Tick the "
 Edit the view "Home".
 <div align="center"><img src="img/edit_home.png" /></div> Rename it if you want, and choose "1" as the URL.<div align="center"><img src="img/home_view.png" /></div>
 <div></div>
+
+
 You can now create as many views as you like, the only important thing is that you give them unique numbers as URLs just like in the previous step. You can also do this later if you want.
 
 # Create an Alexa Smart Home Skill
@@ -140,9 +142,10 @@ You should see it try to auto populate the info you have already added.
 ### Step 21: Code Editor
 1. Navigate to the **Code** tab at the top.
    <div align="center"><img src="img/click_code.png" /></div>
-2. Replace the content of the `lambda_function.py` file with the appropriate content from the repository.
+2. Replace the content of the `lambda_function.py` file with the appropriate content from the [repository](https://github.com/Combatchuck/home-assistant-on-echo-show/blob/main/lambda_function.py).
 3. Update the `DASHBOARD_URL` variable to match your Home Assistant URL. For example:
-   DASHBOARD_URL = "https://homeassistant.local:8123/echo-show/"
+   DASHBOARD_URL =
+   https://homeassistant.local:8123/echo-show/
    <div align="center"><img src="img/HA_url.png" /></div>
 - If you use Kiosk Mode, update the `KIOSK_MODE` variable accordingly.
 4. Click **Save**.
@@ -181,10 +184,10 @@ You should see it try to auto populate the info you have already added.
 
 # Example Automation in Home Assistant
 
-I put this automation in a time box as a condition because I also have an automation that runs to turn off the screens at night. The reload would wake them back up.
+I put this automation in a time box (7AM-10:39) as a condition because I also have an automation that runs to turn off the screens at night. The reload would wake them back up.
 <div align="center"><img src="img/example_automation.png" /></div>
 
-I have multiple dashboards, anmed how I want, but I change the url number to match what the automation is passing to the echo
+I have multiple dashboards, named how I want, but I change the url number to match what the automation is passing to the echo
 
 <div align="center"><img src="img/multiple.png" /></div>
 

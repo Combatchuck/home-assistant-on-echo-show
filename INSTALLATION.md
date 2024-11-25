@@ -11,7 +11,7 @@ Choose "New Dashboard from scratch" Choose a name and the URL for the dashboard.
 ### Step 2: Edit Dashboard
 Open the dashboard click on "Edit Dashboard" in the top right corner. Tick the "Start with an empty dashboard" option and press "Take Control"
 
-Note that this step might not appear depending on how you set-up new dashboards to appear".
+Note that this step might not appear depending on how you set-up new dashboards to appear.
  <div align="center"><img src="img/take_control.png" /></div>
 
 ### Step 3: Edit Dashboard View

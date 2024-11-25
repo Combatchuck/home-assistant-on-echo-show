@@ -33,8 +33,8 @@ Navigate to [Alexa Developer Console](https://developer.amazon.com/alexa/console
 ### Step 5: Configure Skill Basics
 - **Name your skill** *(Only used in the console)*.
 - Choose your **Primary Locale** (Country)
-- 
-  <div align="center"><img src="img/name_skill.png" /></div>
+
+    <div align="center"><img src="img/name_skill.png" /></div>
 
 
 

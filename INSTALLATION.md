@@ -1,3 +1,5 @@
+### I am in no way trying to take credit for this. I forked it because it was abandoned and needed an update for instructions
+
 # Installation
 ### Step 1: Create New Dashboard
 In Home Assistant, go to Settings > Dashboards and press the "Add Dashboard" button on the bottom right. 
@@ -17,25 +19,26 @@ You can now create as many views as you like, the only important thing is that y
 
 # Create an Alexa Smart Home Skill
 
-<div align="center"><img src="img/23.png" /></div>
 
 ### Step 4: Click on Create Skill
 Navigate to [Alexa Developer Console](https://developer.amazon.com/alexa/console/ask) and click on **Create Skill**.
 
-<div align="center"><img src="img/24.png" /></div>
+<div align="center"><img src="img/create_skill.png" /></div>
 
 ### Step 5: Configure Skill Basics
 - **Name your skill** *(Only used in the console)*.
-- Choose your **Primary Locale** (Country), if necessary.
+- Choose your **Primary Locale** (Country)
+- 
+  <div align="center"><img src="img/name_skill.png" /></div>
 
-<div align="center"><img src="img/25.png" /></div>
+
 
 ### Step 6: Select Skill Type
 - Choose the **Smart Home** radio button.
 - Choose the **Custom** pane.
 - Toggle **Sync Locales** to ON.
 
-<div align="center"><img src="img/26.png" /></div>
+<div align="center"><img src="img/1template.png" /></div>
 
 ### Step 7: Hosting Options
 - Choose **Alexa-hosted (Python)**.
@@ -43,21 +46,26 @@ Navigate to [Alexa Developer Console](https://developer.amazon.com/alexa/console
 
 Click **Next**.
 
-<div align="center"><img src="img/27.png" /></div>
+<div align="center"><img src="img/alexa_hosted_python.png" /></div>
 
 ### Step 8: Skill Template
 - Choose **Start from scratch**.
 
-<div align="center"><img src="img/28.png" /></div>
+<div align="center"><img src="img/scratch.png" /></div>
 
 ### Step 9: Review and Create
 - Review settings and click **Create**.
 - Wait a few minutes for the skill to initialize.
 
+<div align="center"><img src="img/review_and_create.png" /></div>
+<div align="center"><img src="img/couple_mins.png" /></div>
+
+
+
 ### Step 10: Skill Dashboard
 Once initialized, you'll see the skill dashboard.
 
-<div align="center"><img src="img/29.png" /></div>
+<div align="center"><img src="img/looks_like_this.png" /></div>
 
 ### Step 11: Set Invocation Name
 - Under "Building your skill" on the right, select **1. Invocation Name**.
@@ -65,7 +73,7 @@ Once initialized, you'll see the skill dashboard.
 
 Don’t forget to hit **Save**.
 
-<div align="center"><img src="img/30.png" /></div>
+<div align="center"><img src="img/invocation.png" /></div>
 
 ### Step 12: Menu Overview
 Expand the menu on the left. It should look like this:

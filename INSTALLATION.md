@@ -1,4 +1,6 @@
-### I am in no way trying to take credit for this. I forked it because it was abandoned and needed an update for instructions
+### I am in no way trying to take credit for this. I forked it because it was abandoned and needed an update for instructions as the GUI in the Amazon Developer console changed so much that it was hard to follow.
+
+
 
 # Installation
 ### Step 1: Create New Dashboard

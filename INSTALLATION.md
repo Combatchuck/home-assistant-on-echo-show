@@ -78,25 +78,91 @@ Don’t forget to hit **Save**.
 ### Step 12: Menu Overview
 Expand the menu on the left. It should look like this:
 
-<div align="center"><img src="img/31.png" /></div>
+<div align="center"><img src="img/the_following.png" /></div>
 
 ### Step 13: Delete Default Intent
 - Delete the **Hello World** intent.
 - Confirm deletion.
 
-<div align="center"><img src="img/32.png" /></div>
+<div align="center"><img src="img/Intents.png" /></div>
 
 ### Step 14: Create a Custom Intent
 - Enter **OpenPageIntent**.
 - Click on **Create custom intent**.
 
-<div align="center"><img src="img/33.png" /></div>
+<div align="center"><img src="img/Add intent.png" /></div>
 
 ### Step 15: Add Intent Slots
 - Under the intent, add a slot named **page**.
 - Click the **+** under Intent Slots and select **Amazon Number**.
 
-<div align="center"><img src="img/34.png" /></div>
+<div align="center"><img src="img/openPageIntent.png" /></div>
+
+<div align="center"><img src="img/amazonNumber.png" /></div>
 
 ### Step 16: Add Sample Utterances
  - Enter the following under sample utterances:
+
+Confirm the slot auto-populates.
+
+<div align="center"><img src="img/35.png" /></div>
+
+- Click on the slot **page** and ensure it looks correct.
+- Add the utterance by clicking the **+** on the far right.
+- Hit **Save** at the top.
+
+<div align="center"><img src="img/36.png" /></div>
+
+### Step 19: Enable Interfaces
+- Go to **Interfaces** on the left menu.
+- Toggle **Alexa Presentation Layer** ON.
+- Click **Save**.
+
+<div align="center"><img src="img/37.png" /></div>
+
+### Step 20: Build the Skill
+- Click on **Build** at the top bar.
+- Select **Build Skill**.
+
+<div align="center"><img src="img/38.png" /></div>
+
+- Wait for the build process to complete.
+
+<div align="center"><img src="img/39.png" /></div>
+
+### Step 21: Code Editor
+1. Navigate to the **Code** tab at the top.
+2. Replace the content of the `lambda_function.py` file with the appropriate content from the repository.
+3. Update the `DASHBOARD_URL` variable to match your Home Assistant URL. For example:
+   DASHBOARD_URL = "https://homeassistant.local:8123/echo-show/"
+- If you use Kiosk Mode, update the `KIOSK_MODE` variable accordingly.
+4. Click **Save**.
+
+<div align="center"><img src="img/40.png" /></div>
+
+### Step 22: Add Template File
+1. Right-click on the **lambda** folder and select **Create File**.
+2. Set the file path as `lambda/template.json`.
+3. Paste the contents of the `template.json` from the repository.
+4. Save and click **Deploy**.
+5. Wait for the **Deployment Successful** notification.
+
+<div align="center"><img src="img/41.png" /></div>
+
+### Step 23: Test the Skill
+1. Go to the **Test** tab.
+2. Enable skill testing in the **Development** environment.
+
+<div align="center"><img src="img/42.png" /></div>
+
+### Step 24: Test on Your Alexa Device
+- Use your Alexa device to test the skill:
+- Say: "Alexa, open dashboard viewer."
+- If prompted, sign in to your Home Assistant account. *(Enable "Keep me logged in.")*
+- Test view selection by saying:
+ ```
+ Alexa, tell dashboard viewer open page <number>.
+ ```
+ Replace `<number>` with the desired view URL.
+
+<div align="center"><img src="img/43.png" /></div>

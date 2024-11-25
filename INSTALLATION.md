@@ -15,19 +15,17 @@
 <div align="center"><img src="img/23.png" /></div>
 
 ### Step 6: Click on Create Skill
-6. Navigate to [Alexa Developer Console](https://developer.amazon.com/alexa/console/ask) and click on **Create Skill**.
+Navigate to [Alexa Developer Console](https://developer.amazon.com/alexa/console/ask) and click on **Create Skill**.
 
 <div align="center"><img src="img/24.png" /></div>
 
 ### Step 7: Configure Skill Basics
-7.
 - **Name your skill** *(Only used in the console)*.
 - Choose your **Primary Locale** (Country), if necessary.
 
 <div align="center"><img src="img/25.png" /></div>
 
 ### Step 8: Select Skill Type
-8.
 - Choose the **Smart Home** radio button.
 - Choose the **Custom** pane.
 - Toggle **Sync Locales** to ON.
@@ -35,7 +33,6 @@
 <div align="center"><img src="img/26.png" /></div>
 
 ### Step 9: Hosting Options
-9.
 - Choose **Alexa-hosted (Python)**.
 - Select the hosted region closest to you.
 
@@ -44,24 +41,20 @@ Click **Next**.
 <div align="center"><img src="img/27.png" /></div>
 
 ### Step 10: Skill Template
-10.
 - Choose **Start from scratch**.
 
 <div align="center"><img src="img/28.png" /></div>
 
 ### Step 11: Review and Create
-11.
 - Review settings and click **Create**.
 - Wait a few minutes for the skill to initialize.
 
 ### Step 12: Skill Dashboard
-12.
 Once initialized, you'll see the skill dashboard.
 
 <div align="center"><img src="img/29.png" /></div>
 
 ### Step 13: Set Invocation Name
-13.
 - Under "Building your skill" on the right, select **1. Invocation Name**.
 - Enter a name for your skill. *(e.g., "dashboard viewer")*
 
@@ -70,32 +63,27 @@ Don’t forget to hit **Save**.
 <div align="center"><img src="img/30.png" /></div>
 
 ### Step 14: Menu Overview
-14.
 Expand the menu on the left. It should look like this:
 
 <div align="center"><img src="img/31.png" /></div>
 
 ### Step 15: Delete Default Intent
-15.
 - Delete the **Hello World** intent.
 - Confirm deletion.
 
 <div align="center"><img src="img/32.png" /></div>
 
 ### Step 16: Create a Custom Intent
-16.
 - Enter **OpenPageIntent**.
 - Click on **Create custom intent**.
 
 <div align="center"><img src="img/33.png" /></div>
 
 ### Step 17: Add Intent Slots
-17.
 - Under the intent, add a slot named **page**.
 - Click the **+** under Intent Slots and select **Amazon Number**.
 
 <div align="center"><img src="img/34.png" /></div>
 
 ### Step 18: Add Sample Utterances
-18.
  - Enter the following under sample utterances:

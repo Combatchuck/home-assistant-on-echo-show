@@ -2,7 +2,7 @@
 
 1. In Home Assistant, go to Settings > Dashboards and press the "Add Dashboard" button on the bottom right. Choose "New Dashboard from scratch" Choose a name and the URL for the dashboard. We will use ``echo-show`` as URL. <div align="center"><img src="img/dashboard_creation.png" /></div>
 
-2. Open the dashboard click on "Edit Dashboard" in the top right corner. Tick the "Start with an empty dashboard" option and press "Take Control".<div align="center"><img src="img/take_control.png" />Note that this step might not appear depending on how you set-up new dashboards to appear" </div>
+2. Open the dashboard click on "Edit Dashboard" in the top right corner. Tick the "Start with an empty dashboard" option and press "Take Control"/>Note that this step might not appear depending on how you set-up new dashboards to appear" </div>.<div align="center"><img src="img/take_control.png" 
 
 3. Edit the view "Home".<div align="center"><img src="img/edit_home.png" /></div> Rename it if you want, and choose "1" as the URL.<div align="center"><img src="img/home_view.png" /></div>
 

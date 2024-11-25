@@ -151,9 +151,10 @@ Confirm the slot auto-populates.
 
 ### Step 23: Test the Skill
 1. Go to the **Test** tab.
+   <div align="center"><img src="img/test_tab.png" /></div>
 2. Enable skill testing in the **Development** environment.
 
-<div align="center"><img src="img/42.png" /></div>
+<div align="center"><img src="img/dev_dropdown.png" /></div>
 
 ### Step 24: Test on Your Alexa Device
 - Use your Alexa device to test the skill:
@@ -165,4 +166,13 @@ Confirm the slot auto-populates.
  ```
  Replace `<number>` with the desired view URL.
 
-<div align="center"><img src="img/43.png" /></div>
+
+# Example Automation in Home Assistant
+
+I put this automation in a time box as a condition because I also have an automation that runs to turn off the screens at night. The reload would wake them back up.
+<div align="center"><img src="img/example_automation.png" /></div>
+
+I have multiple dashboards, anmed how I want, but I change the url number to match what the automation is passing to the echo
+
+<div align="center"><img src="img/multiple.png.png" /></div>
+

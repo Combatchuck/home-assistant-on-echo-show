@@ -37,7 +37,3 @@ For instructions how to set this skill up refer to the [installation](INSTALLATI
 ## How to use
 
 Once you've set this skill up refer to the [usage](USAGE.md) page for details how to use this skill effectively.
-
-## TODO
-
-* Make it possible to import this skill via GitHub URL to simplify installation.

@@ -103,51 +103,64 @@ Expand the menu on the left. It should look like this:
 ### Step 16: Add Sample Utterances
  - Enter the following under sample utterances:
 
-Confirm the slot auto-populates.
+Now on the top half of this page, we need to add information to the sample Utterances
+Paste in 
 
-<div align="center"><img src="img/35.png" /></div>
+open page {page}
+
+You should see it try to auto populate the info you have already added.
+
+<div align="center"><img src="img/openpageintent_page.png" /></div>
 
 - Click on the slot **page** and ensure it looks correct.
 - Add the utterance by clicking the **+** on the far right.
 - Hit **Save** at the top.
 
-<div align="center"><img src="img/36.png" /></div>
+<div align="center"><img src="img/openpageintent_complete.png" /></div>
 
 ### Step 19: Enable Interfaces
 - Go to **Interfaces** on the left menu.
+<div align="center"><img src="img/interfaces.png" /></div>
 - Toggle **Alexa Presentation Layer** ON.
+  <div align="center"><img src="img/presentation_layer.png" /></div>
 - Click **Save**.
 
-<div align="center"><img src="img/37.png" /></div>
+
 
 ### Step 20: Build the Skill
 - Click on **Build** at the top bar.
 - Select **Build Skill**.
 
-<div align="center"><img src="img/38.png" /></div>
-
+<div align="center"><img src="img/build_skill_1.png" /></div>
+<div align="center"><img src="img/build_skill_2.png" /></div>
 - Wait for the build process to complete.
 
-<div align="center"><img src="img/39.png" /></div>
-
+<div align="center"><img src="img/build_in_progress.png" /></div>
+   
 ### Step 21: Code Editor
 1. Navigate to the **Code** tab at the top.
+   <div align="center"><img src="img/click_code.png" /></div>
 2. Replace the content of the `lambda_function.py` file with the appropriate content from the repository.
 3. Update the `DASHBOARD_URL` variable to match your Home Assistant URL. For example:
    DASHBOARD_URL = "https://homeassistant.local:8123/echo-show/"
+   <div align="center"><img src="img/HA_url.png" /></div>
 - If you use Kiosk Mode, update the `KIOSK_MODE` variable accordingly.
 4. Click **Save**.
 
-<div align="center"><img src="img/40.png" /></div>
+
 
 ### Step 22: Add Template File
 1. Right-click on the **lambda** folder and select **Create File**.
+   <div align="center"><img src="img/create_file.png" /></div>
 2. Set the file path as `lambda/template.json`.
+   <div align="center"><img src="img/create_template_json.png" /></div>
 3. Paste the contents of the `template.json` from the repository.
+   <div align="center"><img src="template_json.png" /></div>
 4. Save and click **Deploy**.
+
 5. Wait for the **Deployment Successful** notification.
 
-<div align="center"><img src="img/41.png" /></div>
+
 
 ### Step 23: Test the Skill
 1. Go to the **Test** tab.
@@ -174,5 +187,5 @@ I put this automation in a time box as a condition because I also have an automa
 
 I have multiple dashboards, anmed how I want, but I change the url number to match what the automation is passing to the echo
 
-<div align="center"><img src="img/multiple.png.png" /></div>
+<div align="center"><img src="img/multiple.png" /></div>
 

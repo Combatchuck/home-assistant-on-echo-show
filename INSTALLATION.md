@@ -1,4 +1,4 @@
-### I am in no way trying to take credit for this. I forked it because it was abandoned and needed an update for instructions as the GUI in the Amazon Developer console changed so much that it was hard to follow.
+### I am in no way trying to take credit for this. I forked it because it was abandoned and needed an update for instructions as the GUI in the Amazon Developer console changed so much that it was pretty hard to follow.
 [aldadic/home-assistant-on-echo-show](https://github.com/aldadic/home-assistant-on-echo-show)
 
 
@@ -191,7 +191,8 @@ You should see it try to auto populate the info you have already added.
 I put this automation in a time box (7AM-10:39) as a condition because I also have an automation that runs to turn off the screens at night. The reload would wake them back up.
 <div align="center"><img src="img/example_automation.png" /></div>
 
-I have multiple dashboards, named how I want, but I change the url number to match what the automation is passing to the echo
+I have multiple dashboards, named how I want, but I change the url number to match what the automation is passing to the echo.
+You can also create as many skills as you like if you want to make dashboards that you can remember the names for and use your voice to call them.
 
 <div align="center"><img src="img/multiple.png" /></div>
 

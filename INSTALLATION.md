@@ -150,8 +150,9 @@ You should see it try to auto populate the info you have already added.
 3. Update the `DASHBOARD_URL` variable to match your Home Assistant URL. For example:
    DASHBOARD_URL =
    https://homeassistant.local:8123/echo-show/
-   If you have issues, try and use the IP over the dns
+   
    <div align="center"><img src="img/HA_url.png" /></div>
+- If you have issues, try and use the IP over the dns
 - If you use Kiosk Mode, update the `KIOSK_MODE` variable accordingly.
 4. Click **Save**.
 

@@ -183,6 +183,7 @@ You should see it try to auto populate the info you have already added.
 ### Step 24: Test on Your Alexa Device
 - Use your Alexa device to test the skill:
 - Say: "Alexa, open dashboard viewer."
+- Note: You might want to create a non-admin user to login unless it is just you accessing the dashboard
 - If prompted, sign in to your Home Assistant account. *(Enable "Keep me logged in.")*
 - Test view selection by saying:
  ```

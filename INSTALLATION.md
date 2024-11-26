@@ -154,7 +154,7 @@ You should see it try to auto populate the info you have already added.
    <div align="center"><img src="img/HA_url.png" /></div>
 - If you have issues, try and use the IP over the dns
 - If you did not call your dashboard echo-show, you will need change that too.
-- (You might want to open a browser and copy the main url from the dashboard you are wanting to use and paste it in)
+- You might want to open a browser and copy the main url from the dashboard you are wanting to use and paste it in
 - Ensure you have "" around the url
 - If you use Kiosk Mode, update the `KIOSK_MODE` variable accordingly.
 4. Click **Save**.

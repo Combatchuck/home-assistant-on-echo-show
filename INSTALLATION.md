@@ -152,7 +152,7 @@ You should see it try to auto populate the info you have already added.
    https://homeassistant.local:8123/echo-show/
    
    <div align="center"><img src="img/HA_url.png" /></div>
-- If you have issues, try and use the IP over the dns
+- If you have issues, try and use the IP over the dns "http://10.X.X.X:8123/echo-show"
 - If you did not call your dashboard echo-show, you will need change that too.
 - You might want to open a browser and copy the main url from the dashboard you are wanting to use and paste it in
 - Ensure you have "" around the url

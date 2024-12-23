@@ -202,3 +202,19 @@ You can also create as many skills as you like if you want to make dashboards th
 
 <div align="center"><img src="img/multiple.png" /></div>
 
+
+This example has a 15 minute refresh. Adding the following as a button on your dash, I can get 45-60 mins.
+
+type: custom:mod-card
+card:
+  type: iframe
+  url: https://dagammla.gitlab.io/keep-silk-open/iframe.html
+  aspect_ratio: 10%
+style:
+  .: |
+    iframe {
+      height: 50px !important;
+      width: 50px !important;
+    }
+
+

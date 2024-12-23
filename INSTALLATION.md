@@ -203,8 +203,13 @@ You can also create as many skills as you like if you want to make dashboards th
 <div align="center"><img src="img/multiple.png" /></div>
 
 
-This example has a 15 minute refresh. Adding the following as a button on your dash, I can get 45-60 mins.
 
+### This example has a 15 minute refresh. Adding the following as a button on your dash, I can get 45-60 mins.
+
+
+
+
+```yaml
 type: custom:mod-card
 card:
   type: iframe
@@ -216,5 +221,6 @@ style:
       height: 50px !important;
       width: 50px !important;
     }
+
 
 

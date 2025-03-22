@@ -1,6 +1,6 @@
 ### I am in no way trying to take credit for this. 
 ### I forked it because it was abandoned and needed an update for instructions as the GUI in the Amazon Developer console changed so much that it was pretty hard to follow.
-###I created a pull request that he denied
+### I created a pull request that he denied
 [aldadic/home-assistant-on-echo-show](https://github.com/aldadic/home-assistant-on-echo-show)
 
 
